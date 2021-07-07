@@ -46,3 +46,10 @@ class PassagemForms(forms.ModelForm):
 
         return self.cleaned_data
        
+
+class PessoaForms(forms.ModelForm):
+    class Meta:
+        model = Pessoa
+        exclude = ['nome']
+
+    
