@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from passagens.forms import PassagemForms
+from passagens.models import Passagem
 # Create your views here.
 
 def index(request):
