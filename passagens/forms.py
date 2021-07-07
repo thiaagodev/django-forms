@@ -12,3 +12,10 @@ class PassagemForms(forms.Form):
     data_pesquisa = forms.DateField(label='Data da pesquisa', disabled=True, initial=datetime.today())
     informacoes = forms.CharField(label='Informações Extras', max_length=200, widget=forms.Textarea(), required=False)
     email = forms.EmailField(label='Email', max_length=150)
+
+    def clean_origem(self):
+        origem = self.cleaned_data.get('origem')
+        if any(char.isdigit() for char in origem):
+            raise forms.ValidationError('Origem inválida, não inclua números!')
+        else:
+            return origem
